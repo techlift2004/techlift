@@ -1,16 +1,17 @@
-import { BrowserRouter } from "react-router-dom";
-import Routes from "./route";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from "./Layout";
+import Home from "./pages/home/page";
+import About from "./pages/about/page";
 
-
-
-function App() {
+export default function App() {
   return (
-    <div className="max-w-[1500px] mx-auto bg-[#ECD3FF] "> 
     <BrowserRouter>
-      <Routes />
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="about" element={<About />} />
+        </Route>
+      </Routes>
     </BrowserRouter>
-    </div>
   );
 }
-
-export default App;
