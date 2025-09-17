@@ -1,7 +1,11 @@
 import React from 'react'
+import Nav from '@/layout/nav/nav'
 
 export default function page() {
   return (
-    <div>page</div>
+    <div>
+        <Nav />
+
+    </div>
   )
 }
