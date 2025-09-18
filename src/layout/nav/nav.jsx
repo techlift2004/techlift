@@ -3,7 +3,7 @@ import logo from '@/assets/techlift.svg'
 import { Button } from '@/components/ui/button'
 import { Link } from 'react-router-dom'
 
-export default function nav() {
+export default function Nav() {
   return (
     <div className='w-full flex flex-row justify-between items-center px-10 py-5 bg-white shadow-md'>
 
