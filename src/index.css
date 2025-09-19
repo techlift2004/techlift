@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 @import "tailwindcss";
 @import "tw-animate-css";
@@ -46,6 +45,8 @@
    --color-button-background: var(--button-background);
     --font-poppin: "Poppins", sans-serif;
     --color-text: var(--text);
+    --color-gray-text: var(--gray-text);
+    --font-Inter: "Inter", sans-serif;
     
 }
 
@@ -84,6 +85,7 @@
   --sidebar-ring: oklch(0.708 0 0);
   --button-background: #4B0081;
   --text: #4B0081; 
+  --gray-text: #858686;
 }
 
 .dark {
@@ -127,4 +129,18 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  animation: marquee 4s linear infinite;
 }
