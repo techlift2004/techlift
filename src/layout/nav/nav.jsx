@@ -15,10 +15,10 @@ export default function Nav() {
             <Link to='/'>Home</Link>
             <Link to='/about' >About</Link>
             <Link>Blog</Link>
-            <Link>Events</Link>
+            <Link to='event'>Events</Link>
             <Link>Resources</Link>
             <Link>Sponsor Us</Link>
-            <Link>Contact Us</Link>
+            <Link to='/contact'>Contact Us</Link>
         </ul>
 
         <Button className='bg-button-background '>Join The Community</Button>
