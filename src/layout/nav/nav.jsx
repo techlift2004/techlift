@@ -18,25 +18,29 @@ export default function Nav() {
   ];
 
   return (
-    <div className="w-full flex flex-row justify-between items-center px-10 py-5 bg-white shadow-md">
-      {/* <div className="flex justify-between items-center w-full"> */}
-      <img src={logo} alt="logo" />
-      <img
-        src={bars}
-        alt="navlinks-controller"
-        onClick={() => setSmallScreen((prev) => !prev)}
-        className="p-2 block lg:hidden hover:border-2 border-purple-600 hover:rounded-md"
-      />
-      {/* </div> */}
-      <div className={`${smallScreen ? "block" : "hidden"}`}>
-        <ul className="flex flex-col lg:flex-row gap-10 items-center font-Nunito">
-          {links.map((l, i) => (
-            <Link key={i} to={l.to} className="hover:text-purple-600">
-              {l.label}
-            </Link>
-          ))}
-        </ul>
-        <Button className="bg-button-background">Join The Community</Button>
+    <div className="w-full flex flex-col lg:flex-row justify-between items-start lg:items-center px-10 py-5 bg-white shadow-md relative">
+      <div className="flex justify-between items-center w-full lg:w-auto">
+        <img src={logo} alt="logo" />
+        <img
+          src={bars}
+          alt="navlinks-controller"
+          onClick={() => setSmallScreen((prev) => !prev)}
+          className="p-2 block lg:hidden hover:border-2 border-purple-600 hover:rounded-md cursor-pointer"
+        />
+      </div>
+      <div
+        className={`${
+          smallScreen ? "flex" : "hidden"
+        } flex-col gap-5 items-start my-5 lg:my-auto lg:items-center lg:flex lg:flex-row lg:gap-10 font-Nunito`}
+      >
+        {links.map((l, i) => (
+          <Link key={i} to={l.to} className="hover:text-purple-600">
+            {l.label}
+          </Link>
+        ))}
+        <Button className="bg-button-background w-full lg:w-auto">
+          Join The Community
+        </Button>
       </div>
     </div>
   );
