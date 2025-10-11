@@ -29,7 +29,7 @@ export default function Footer() {
     <div className="bg-white px-[1.5rem] md:px-[5rem] py-12">
       <div className="border-b-[0.5px] border-[#7C7C7C] pb-10 md:flex flex-col justify-between lg:flex-row">
         <div className="max-w-sm mb-7">
-          <img src={companyIcon} alt="company logo" className="h-10" />
+          <img src={companyIcon} alt="company logo" className="w-[10rem]" />
           <p className="my-5 text-sm text-gray-600">
             Empowering the next Generation of Tech talent through learning.
           </p>
