@@ -1,10 +1,10 @@
 import React from "react";
-import Nav from "@/layout/nav/nav";
+import Hero from "./Hero";
 
 export default function page() {
   return (
     <div>
-     
+      <Hero />
     </div>
   );
 }
