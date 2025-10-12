@@ -12,7 +12,7 @@ export default function Nav() {
     { to: "/about", label: "About" },
     { to: "/blog", label: "Blog" },
     { to: "/event", label: "Events" },
-    { to: "/resources", label: "Resources" },
+    { to: "/resource", label: "Resources" },
     { to: "/sponsor", label: "Sponsor Us" },
     { to: "/contact", label: "Contact Us" },
   ];

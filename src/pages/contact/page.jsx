@@ -39,7 +39,7 @@ export default function page() {
             </div>
 
             <div className='py-10 px-10 flex flex-row justify-center gap-28  '>
-                <div className="max-w-[524px] w-full h-[648px] shadow px-5 py-8 flex flex-col justify-between bg-center bg-no-repeat  bg-contain bg-white"
+                <div className="max-w-[524px] w-full h-[648px] shadow px-5 py-8 flex flex-col justify-start bg-center bg-no-repeat  bg-contain bg-white"
                     style={{ backgroundImage: `url(${bgImage})`, backgroundSize: "420px 420px", }}>
                     <div>
                         <h2 className='font-poppin font-medium text-[25px] '>Send Us a Message</h2>
@@ -68,7 +68,7 @@ export default function page() {
                         </Label>
                     </form>
 
-                    <Button className='bg-button-background py-6 '>Send Messages</Button>
+                    <Button className='bg-button-background py-6 items-start px-7 '>Send Messages</Button>
 
                 </div>
 

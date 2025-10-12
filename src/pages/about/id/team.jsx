@@ -1,113 +1,90 @@
-import React from 'react'
-import { Card } from '@/components/ui/card'
-import image1 from "@/assets/about/image1.svg"
-import websites from "@/assets/icons/website.png"
-import linkedins from "@/assets/icons/linkedin.svg"
+"use client";
+import React, { useEffect, useState } from "react";
+import { Card } from "@/components/ui/card";
+import { supabase } from "@/lib/supabaseClient";
+import websites from "@/assets/icons/website.png";
+import linkedins from "@/assets/icons/linkedin.svg";
 
-export default function team() {
+export default function Team() {
+  const [team, setTeam] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-    const team = [
-        {
-            image: image1,
-            name: "Janet Doe",
-            role: "Technical Team Lead",
-            linkedin: "www.linkedin.com",
-            website: "www.website.com",
-        },
+  useEffect(() => {
+    const fetchTeam = async () => {
+      const { data, error } = await supabase.from("team_members").select("*");
+      if (error) {
+        console.error("Error fetching team:", error);
+      } else {
+        setTeam(data);
+      }
+      setLoading(false);
+    };
+    fetchTeam();
+  }, []);
 
-        {
-            image: image1,
-            name: "Janet Doe",
-            role: "Technical Team Lead",
-            linkedin: "www.linkedin.com",
-            website: "www.website.com",
-        },
-        {
-            image: image1,
-            name: "Janet Doe",
-            role: "Technical Team Lead",
-            linkedin: "www.linkedin.com",
-            website: "www.website.com",
-        },
-        {
-            image: image1,
-            name: "Janet Doe",
-            role: "Technical Team Lead",
-            linkedin: "www.linkedin.com",
-            website: "www.website.com",
-        },
-        {
-            image: image1,
-            name: "Janet Doe",
-            role: "Technical Team Lead",
-            linkedin: "www.linkedin.com",
-            website: "www.website.com",
-        },
-        {
-            image: image1,
-            name: "Janet Doe",
-            role: "Technical Team Lead",
-            linkedin: "www.linkedin.com",
-            website: "www.website.com",
-        },
-        {
-            image: image1,
-            name: "Janet Doe",
-            role: "Technical Team Lead",
-            linkedin: "www.linkedin.com",
-            website: "www.website.com",
-        },
-        {
-            image: image1,
-            name: "Janet Doe",
-            role: "Technical Team Lead",
-            linkedin: "www.linkedin.com",
-            website: "www.website.com",
-        }
-    ]
+  return (
+    <div className="flex flex-col gap-10 items-center pt-16 px-5 sm:px-8 md:px-10 pb-20">
+      {/* Header Section */}
+      <div className="flex flex-col text-center items-center gap-2">
+        <h1 className="font-poppin font-semibold text-[28px] sm:text-[34px] md:text-[40px] text-text">
+          The Brains Behind the Magic
+        </h1>
+        <p className="font-Nunito font-normal text-[16px] sm:text-[18px] md:text-[20px] text-gray-text max-w-[600px]">
+          Meet the leadership and advisor team behind TechLift
+        </p>
+      </div>
 
-    return (
-        <div className='flex flex-col gap-10 items-center pt-20 px-10'>
-            <div className='flex flex-col'>
-                <h1 className='font-poppin font-semibold text-[40px] text-text'>The Brains Behind the Magic</h1>
+      {loading ? (
+        <p className="text-gray-500 text-lg">Loading team members...</p>
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full">
+          {team.map((member) => (
+            <Card
+              key={member.id}
+              className="w-full h-full rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300"
+            >
+              <div className="flex flex-col items-center h-full pb-5">
+                <img
+                  src={member.image_url}
+                  alt={member.name}
+                  className="w-[600px] px-4 py-3 max-h-[480px] object-contain"
+                />
+                <div className="flex flex-col justify-between items-center pt-3 gap-5 flex-grow w-full px-3 sm:px-5">
+                  <div className="flex flex-col items-center text-center">
+                    <h2 className="font-Inter font-medium text-text text-[18px] sm:text-[20px] md:text-[22px]">
+                      {member.name}
+                    </h2>
+                    <p className="font-Inter font-normal text-gray-text text-[14px] sm:text-[15px] md:text-[16px]">
+                      {member.role}
+                    </p>
+                  </div>
 
-                <p className='font-Nunito font-normal text-[22px] text-gray-text '>Meet the leadership and advisor team behind TechLifts</p>
-            </div>
+                  <hr className="border-[1px] w-full" />
 
-            <div className="grid grid-cols-4 space-x-15 gap-4">
-                {team.map((member, index) => (
-                    <Card key={index} className="w-full h-full">
-                        <div className="flex flex-col items-center h-full">
-                            <img
-                                src={member.image}
-                                alt=""
-                                className="w-full px-4 py-6 max-h-[194px]"
-                            />
-                            <div className="flex flex-col justify-between items-center pt-3 gap-5 flex-grow">
-                                <div className="flex flex-col items-center">
-                                    <h2 className="font-Inter font-medium text-text text-[24px]">
-                                        {member.name}
-                                    </h2>
-                                    <p className="font-Inter font-normal text-gray-text text-[16px]">
-                                        {member.role}
-                                    </p>
-                                </div>
-                                <hr className="border-[1px] w-full" />
-                                <div className="flex flex-row gap-2 items-center p-3 rounded-[8px] bg-[#FFF4F4]">
-                                    <a href={member.website} target="_blank" rel="noopener noreferrer">
-                                        <img src={websites} alt="website" />
-                                    </a>
-                                    <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
-                                        <img src={linkedins} alt="linkedin" />
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </Card>
-                ))}
-            </div>
-
-
+                  <div className="flex flex-row gap-3 items-center p-3 rounded-[8px] bg-[#FFF4F4]">
+                    <a
+                      href={member.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="transition-transform hover:scale-110"
+                    >
+                      <img src={websites} alt="website" className="w-5 sm:w-6" />
+                    </a>
+                    <a
+                      href={member.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="transition-transform hover:scale-110"
+                    >
+                      <img src={linkedins} alt="linkedin" className="w-5 sm:w-6" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </Card>
+          ))}
         </div>
-    )
+      )}
+    </div>
+  );
 }
