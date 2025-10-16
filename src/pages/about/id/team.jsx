@@ -47,7 +47,7 @@ export default function Team() {
                 <img
                   src={member.image_url}
                   alt={member.name}
-                  className="w-[600px] px-4 py-3 max-h-[480px] object-contain"
+                  className="w-[19rem] px-4 py-3 h-full"
                 />
                 <div className="flex flex-col justify-between items-center pt-3 gap-5 flex-grow w-full px-3 sm:px-5">
                   <div className="flex flex-col items-center text-center">
@@ -68,7 +68,11 @@ export default function Team() {
                       rel="noopener noreferrer"
                       className="transition-transform hover:scale-110"
                     >
-                      <img src={websites} alt="website" className="w-5 sm:w-6" />
+                      <img
+                        src={websites}
+                        alt="website"
+                        className="w-5 sm:w-6"
+                      />
                     </a>
                     <a
                       href={member.linkedin}
@@ -76,7 +80,11 @@ export default function Team() {
                       rel="noopener noreferrer"
                       className="transition-transform hover:scale-110"
                     >
-                      <img src={linkedins} alt="linkedin" className="w-5 sm:w-6" />
+                      <img
+                        src={linkedins}
+                        alt="linkedin"
+                        className="w-5 sm:w-6"
+                      />
                     </a>
                   </div>
                 </div>
