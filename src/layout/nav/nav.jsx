@@ -18,7 +18,7 @@ export default function Nav() {
   ];
 
   return (
-    <div className="w-full flex flex-col lg:flex-row justify-between items-start lg:items-center px-10 py-5 bg-white shadow-md fixed mt-[-5rem] z-50">
+    <div className="w-full flex flex-col lg:flex-row justify-between items-start lg:items-center px-10 py-5 bg-white shadow-md fixed mt-0 z-50">
       <div className="flex justify-between items-center w-full lg:w-auto">
         <img src={logo} alt="logo" />
         <img

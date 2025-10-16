@@ -1,6 +1,6 @@
 const PostHero = () => {
   return (
-    <div className="bg-[#F6ECFD] border-y-2 border-dashed border-[#4B0081] p-5 md:py-5 lg:px-40 text-center my-20">
+    <div className="bg-[#F6ECFD] border-y-2 border-dashed border-[#4B0081] px-5 py-10 md:py-20 lg:px-40 text-center">
       <div className="flex w-full justify-start">
         <img
           src="/quoteLeft.svg"
