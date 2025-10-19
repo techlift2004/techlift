@@ -13,12 +13,12 @@ import email from '@/assets/icons/email.svg'
 import twitter from '@/assets/icons/twitter1.svg'
 import instagram from '@/assets/icons/instagram1.svg'
 import linkedin from '@/assets/icons/linkedin1.svg'
-import led from '@/assets/contact/Group 7.svg'
+// import led from '@/assets/contact/Group 7.svg'
 
-export default function page() {
+export default function Page() {
     const [phone, setPhone] = useState('');
     return (
-        <div>
+        <div className='pt-20'> 
             <div className="px-10 py-14 bg-linear-to-b to-[#7700CD] from-[#3C0067] flex flex-row justify-between items-center ">
                 <div className="flex flex-col items-start gap-6  max-w-[760px] ">
                     <h1 className="text-[48px] font-Nunito font-bold text-white  ">
