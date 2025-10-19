@@ -1,8 +1,8 @@
 import React from "react";
-import twitterIcon from "../../assets/icons/twitter(footer).svg";
-import facebookIcon from "../../assets/icons/facebook(footer).svg";
-import instagramIcon from "../../assets/icons/instagram(footer).svg";
-import linkedInIcon from "../../assets/icons/linkedIn(footer).svg";
+import twitterIcon from "../../assets/icons/twitter2.svg";
+import facebookIcon from "../../assets/icons/facebook2.svg";
+import instagramIcon from "../../assets/icons/instagram2.svg";
+import linkedInIcon from "../../assets/icons/linkedIn2.svg";
 import companyIcon from "../../assets/techlift.svg";
 
 const socials = [
