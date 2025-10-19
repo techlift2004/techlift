@@ -33,7 +33,7 @@ export default function Page() {
   ];
 
   return (
-    <div className="w-full">
+    <div className="w-full pt-20">
       {/* HERO SECTION */}
       <div className="px-6 sm:px-10 py-14 bg-gradient-to-b from-[#3C0067] to-[#7700CD] flex flex-col lg:flex-row justify-between items-center gap-10 lg:gap-0">
         {/* Left content */}
