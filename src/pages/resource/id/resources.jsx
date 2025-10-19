@@ -146,10 +146,10 @@ export default function Resources() {
                                         />
                                         <div className="flex flex-col items-start text-left">
                                             <h2 className="font-Inter font-semibold text-[20px] text-[#3C0067]">
-                                                {item.title}
+                                                {item.name}
                                             </h2>
                                             <p className="font-Nunito text-[15px] text-[#555]">
-                                                {item.desc}
+                                                {item.description}
                                             </p>
                                         </div>
                                     </div>
