@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 export default function HeroSection() {
   return (
     <>
+      {/* <div className="bg-[#ECD3FF3B] w-[41rem] h-[41rem] absolute left-[-16rem] top-[-5rem] rounded-full"></div> */}
+      <div className="bg-[#ECD3FF3B] w-[43.5rem] h-[47rem] top-[-4.25rem] left-[-18.4375rem] rotate-0 opacity-100 absolute rounded-full"></div>
       <section className="bg-[#F3EFFF] min-h-screen flex items-center justify-center px-6 lg:px-20 py-16 pt-[6rem]">
         <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 items-center gap-12">
           {/* LEFT SIDE */}
