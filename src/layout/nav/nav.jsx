@@ -38,10 +38,10 @@ export default function Nav() {
             {l.label}
           </Link>
         ))}
-        <Button className="bg-button-background w-full lg:w-auto">
+      </div>
+       <Button className="bg-button-background w-full lg:w-auto">
           Join The Community
         </Button>
-      </div>
     </div>
   );
 }
