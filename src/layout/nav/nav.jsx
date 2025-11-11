@@ -3,9 +3,10 @@ import logo from "@/assets/techlift.svg";
 import bars from "../../assets/icons/hamburger.svg";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { X } from "lucide-react";
 
 export default function Nav() {
-  const [smallScreen, setSmallScreen] = React.useState(false);
+  const [open, setOpen] = React.useState(false);
 
   const links = [
     { to: "/", label: "Home" },
@@ -18,30 +19,72 @@ export default function Nav() {
   ];
 
   return (
-    <div className="w-full flex flex-col lg:flex-row justify-between items-start lg:items-center px-10 py-5 bg-white shadow-md fixed mt-0 z-50">
-      <div className="flex justify-between items-center w-full lg:w-auto">
-        <img src={logo} alt="logo" />
+    <>
+      {/* 🌐 Top Navbar */}
+      <nav className="w-full flex justify-between items-center px-8 py-5 bg-white shadow-md fixed top-0 left-0 z-50">
+        {/* Logo */}
+        <Link to="/" className="flex items-center gap-2">
+          <img src={logo} alt="Techlift logo" className="w-auto h-8" />
+        </Link>
+
+        {/* Desktop Links */}
+        <div className="hidden lg:flex items-center gap-10 font-Nunito">
+          {links.map((l, i) => (
+            <Link key={i} to={l.to} className="hover:text-purple-600">
+              {l.label}
+            </Link>
+          ))}
+          <Button className="bg-button-background">Join The Community</Button>
+        </div>
+
         <img
           src={bars}
-          alt="navlinks-controller"
-          onClick={() => setSmallScreen((prev) => !prev)}
-          className="p-2 block lg:hidden hover:border-2 border-purple-600 hover:rounded-md cursor-pointer"
+          alt="Open menu"
+          role="button"
+          aria-label="Open navigation drawer"
+          onClick={() => setOpen(true)}
+          className="p-2 block lg:hidden hover:border-dashed hover:border-2 border-purple-600 hover:rounded-md cursor-pointer"
         />
-      </div>
+      </nav>
+
       <div
-        className={`${
-          smallScreen ? "flex" : "hidden"
-        } flex-col gap-5 items-start my-5 lg:my-auto lg:items-center lg:flex lg:flex-row lg:gap-10 font-Nunito`}
+        className={`fixed inset-0 bg-white flex flex-col justify-between items-center px-8 py-10 z-50 transform transition-all duration-300 ease-in-out ${
+          open ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
+        }`}
       >
-        {links.map((l, i) => (
-          <Link key={i} to={l.to} className="hover:text-purple-600">
-            {l.label}
-          </Link>
-        ))}
-      </div>
-       <Button className="bg-button-background w-full lg:w-auto">
+        <div className="w-full flex justify-between items-center">
+          <img src={logo} alt="Techlift logo" className="w-auto h-8" />
+          <X
+            size={28}
+            className="cursor-pointer hover:text-purple-600 transition"
+            onClick={() => setOpen(false)}
+          />
+        </div>
+
+        <div className="flex flex-col items-center justify-center gap-8 text-2xl font-Nunito flex-grow">
+          {links.map((l, i) => (
+            <Link
+              key={i}
+              to={l.to}
+              onClick={() => setOpen(false)}
+              className="hover:text-purple-600 transition-colors"
+            >
+              {l.label}
+            </Link>
+          ))}
+        </div>
+
+        <Button
+          className="bg-button-background w-full lg:w-auto"
+          onClick={() => setOpen(false)}
+        >
           Join The Community
         </Button>
-    </div>
+      </div>
+
+      {open && (
+        <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40"></div>
+      )}
+    </>
   );
 }
