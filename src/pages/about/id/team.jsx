@@ -47,7 +47,7 @@ export default function Team() {
                 <img
                   src={member.image_url}
                   alt={member.name}
-                  className="w-[19rem] px-4 py-3 h-full"
+                  className="w-[19rem] px-4 py-3 h-[20rem]"
                 />
                 <div className="flex flex-col justify-between items-center pt-3 gap-5 flex-grow w-full px-3 sm:px-5">
                   <div className="flex flex-col items-center text-center">

@@ -5,6 +5,8 @@ import About from "./pages/about/page";
 import Event from "./pages/event/page"
 import Contact from "./pages/contact/page"
 import Resource from "./pages/resource/page"
+import Blog from "./pages/blog/page" 
+import Sponsor from "./pages/sponsor/page"   
 
 export default function App() {
   return (
@@ -16,6 +18,8 @@ export default function App() {
           <Route path="event" element={<Event />} />
           <Route path="contact" element={<Contact />} />
           <Route path="resource" element={<Resource />} />
+          <Route path="blog" element={<Blog />} />
+          <Route path="sponsor" element={<Sponsor />} />
         </Route>
       </Routes>
     </BrowserRouter>

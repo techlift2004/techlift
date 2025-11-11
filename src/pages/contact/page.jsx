@@ -19,26 +19,36 @@ export default function Page() {
     const [phone, setPhone] = useState('');
     return (
         <div className='pt-20'> 
-            <div className="px-10 py-14 bg-linear-to-b to-[#7700CD] from-[#3C0067] flex flex-row justify-between items-center ">
-                <div className="flex flex-col items-start gap-6  max-w-[760px] ">
-                    <h1 className="text-[48px] font-Nunito font-bold text-white  ">
-                        Contact Us Information
-                    </h1>
-                    <p className="font-normal max-w-[580px] text-white font-Nunito text-[20px]">
-                        We ‘d love to hear from you
-                    </p>
-                    <Button className="bg-button-background rounded-2xl py-6 px-10 ">
-                        Contact Us Now
-                    </Button>
-                </div>
-
-                <div className="flex flex-row gap-0 items-center">
-                    <img src={hero1} className="max-w-[215px] h-[404px]" alt="" />
-                    <img src={hero2} className="max-w-[316x] h-[404px]" alt="" />
-                </div>
+            <div className="px-5 sm:px-8 md:px-10 py-10 md:py-14 bg-gradient-to-b from-[#3C0067] to-[#7700CD] flex flex-col md:flex-row justify-between  items-center gap-10 md:gap-0">
+                 <div className="flex flex-col items-center md:items-start gap-5 md:gap-6 max-w-[760px] text-center md:text-left">
+                                    <h1 className="text-[48px] sm:text-[46px] md:text-[48px] font-Nunito font-bold text-white leading-tight">
+                                         Contact Us Information
+                                    </h1>
+                                    <p className="font-Nunito font-normal text-white text-[16px] sm:text-[18px] md:text-[20px] max-w-[580px] mx-auto md:mx-0">
+                                         We ‘d love to hear from you
+                                    </p>
+                                    <Button className="bg-button-background rounded-2xl py-4 px-8 sm:py-5 sm:px-10 text-[16px] sm:text-[18px] mt-3">
+                                        Contact Us Now
+                                    </Button>
+                                </div>
+                
+                
+                                <div className="flex flex-row justify-center md:justify-end gap-2 sm:gap-4 items-center">
+                                    <img
+                                        src={hero1}
+                                        className="w-[140px] sm:w-[180px] md:w-[215px] h-auto"
+                                        alt="TechLift event 1"
+                                    />
+                                    <img
+                                        src={hero2}
+                                        className="w-[180px] sm:w-[230px] md:w-[316px] h-auto"
+                                        alt="TechLift event 2"
+                                    />
+                                </div>
+                
             </div>
 
-            <div className='py-10 px-10 flex flex-row justify-center gap-28  '>
+            <div className='py-10 px-2 md:px-10 flex flex-col md:flex-row justify-center gap-10 md:gap-28  '>
                 <div className="max-w-[524px] w-full h-[648px] shadow px-5 py-8 flex flex-col justify-start bg-center bg-no-repeat  bg-contain bg-white"
                     style={{ backgroundImage: `url(${bgImage})`, backgroundSize: "420px 420px", }}>
                     <div>
@@ -52,7 +62,7 @@ export default function Page() {
                         </Label>
 
                         <Label className='text-[15px] font-poppin font-medium flex flex-col gap-1'>Phone No <PhoneInput
-                            defaultCountry="ua"
+                            defaultCountry="ng"
                             value={phone}
                             onChange={(phone) => setPhone(phone)}
                             className='shadow w-full '
@@ -68,7 +78,7 @@ export default function Page() {
                         </Label>
                     </form>
 
-                    <Button className='bg-button-background py-6 items-start px-7 '>Send Messages</Button>
+                    <Button className='bg-button-background mt-5 items-start px-7  '>Send Messages</Button>
 
                 </div>
 
