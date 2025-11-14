@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import {
   AiOutlineEye,
   AiOutlineEyeInvisible,
   AiOutlineLock,
+  AiOutlineClose,
 } from "react-icons/ai";
 import { supabase } from "../../lib/supabaseClient";
 import { useNavigate } from "react-router-dom";
@@ -22,26 +23,34 @@ export default function ResetPassword() {
     formState: { errors },
   } = useForm();
 
-  const password = watch("password");
+  const password = watch("password") || "";
+  const confirmPassword = watch("confirmPassword") || "";
 
-  useEffect(() => {
-    supabase.auth.onAuthStateChange((event) => {
-      if (event === "PASSWORD_RECOVERY") {
-        console.log("User arrived from reset link");
-      }
-    });
-  }, []);
+  // Password validation
+  const validations = {
+    length: password.length >= 8,
+    uppercase: /[A-Z]/.test(password),
+    lowercase: /[a-z]/.test(password),
+    number: /[0-9]/.test(password),
+    special: /[^A-Za-z0-9]/.test(password),
+  };
+
+  const isFormValid =
+    Object.values(validations).every(Boolean) && password === confirmPassword;
 
   const onSubmit = async (data) => {
     setLoading(true);
     setStatus("");
+
     try {
       const { error } = await supabase.auth.updateUser({
         password: data.password,
       });
+
       if (error) throw error;
+
       setStatus("Password successfully updated!");
-      setTimeout(() => navigate("/"), 2000);
+      setTimeout(() => navigate("/auth"), 2000);
     } catch (err) {
       setStatus(err.message || "Something went wrong!");
     } finally {
@@ -51,31 +60,44 @@ export default function ResetPassword() {
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-purple-100 via-purple-200 to-purple-300">
-      <div className="bg-white/80 backdrop-blur-md shadow-lg rounded-2xl w-[425px] p-8 border border-gray-200">
-        <h2 className="text-xl font-semibold text-gray-800 mb-6 flex items-center gap-2">
+      <div className="relative bg-white/90 backdrop-blur-md shadow-xl rounded-2xl w-[450px] p-8 border border-gray-200">
+        {/* CLOSE BUTTON (React Icons) */}
+        <button
+          type="button"
+          onClick={() => navigate("/auth")}
+          className="absolute right-4 top-4 p-2 rounded-full border border-purple-300 text-purple-600 hover:bg-purple-100 transition"
+        >
+          <AiOutlineClose size={18} />
+        </button>
+
+        {/* Title */}
+        <h2 className="text-xl font-semibold text-gray-800 mb-2 flex items-center gap-2">
           <AiOutlineLock className="text-purple-600" size={22} />
-          Set a New Password
+          Set a Password
         </h2>
 
+        <p className="text-sm text-gray-500 mb-6 leading-relaxed">
+          Your previous password has been reset. Please set a new password for
+          your account.
+        </p>
+
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-          {/* Password */}
-          <div className="relative">
-            <label className="text-sm font-medium text-gray-700">Password</label>
+          {/* New Password */}
+          <div>
+            <label className="text-sm font-medium text-gray-700">
+              Password
+            </label>
             <div className="relative mt-1">
               <input
                 type={showPassword ? "text" : "password"}
                 placeholder="Enter new password"
-                {...register("password", {
-                  required: "Password is required",
-                  minLength: { value: 8, message: "At least 8 characters" },
-                })}
-                className={`w-full border ${
-                  errors.password ? "border-red-400" : "border-gray-300"
-                } rounded-md pl-3 pr-10 py-2 focus:ring-2 focus:ring-purple-400 outline-none`}
+                {...register("password", { required: true })}
+                className="w-full border border-gray-300 rounded-md pl-3 pr-10 py-2 focus:ring-2 focus:ring-purple-400 outline-none"
               />
+
               <button
                 type="button"
-                onClick={() => setShowPassword((p) => !p)}
+                onClick={() => setShowPassword((prev) => !prev)}
                 className="absolute right-3 top-2.5 text-gray-500 hover:text-purple-600"
               >
                 {showPassword ? (
@@ -85,34 +107,24 @@ export default function ResetPassword() {
                 )}
               </button>
             </div>
-            {errors.password && (
-              <p className="text-xs text-red-500 mt-1">
-                {errors.password.message}
-              </p>
-            )}
           </div>
 
           {/* Confirm Password */}
-          <div className="relative">
+          <div>
             <label className="text-sm font-medium text-gray-700">
               Confirm Password
             </label>
             <div className="relative mt-1">
               <input
                 type={showConfirm ? "text" : "password"}
-                placeholder="Re-enter new password"
-                {...register("confirmPassword", {
-                  required: "Confirm your password",
-                  validate: (value) =>
-                    value === password || "Passwords do not match",
-                })}
-                className={`w-full border ${
-                  errors.confirmPassword ? "border-red-400" : "border-gray-300"
-                } rounded-md pl-3 pr-10 py-2 focus:ring-2 focus:ring-purple-400 outline-none`}
+                placeholder="Confirm password"
+                {...register("confirmPassword", { required: true })}
+                className="w-full border border-gray-300 rounded-md pl-3 pr-10 py-2 focus:ring-2 focus:ring-purple-400 outline-none"
               />
+
               <button
                 type="button"
-                onClick={() => setShowConfirm((p) => !p)}
+                onClick={() => setShowConfirm((prev) => !prev)}
                 className="absolute right-3 top-2.5 text-gray-500 hover:text-purple-600"
               >
                 {showConfirm ? (
@@ -122,23 +134,50 @@ export default function ResetPassword() {
                 )}
               </button>
             </div>
-            {errors.confirmPassword && (
+
+            {confirmPassword && password !== confirmPassword && (
               <p className="text-xs text-red-500 mt-1">
-                {errors.confirmPassword.message}
+                Passwords do not match
               </p>
             )}
           </div>
 
+          {/* Password Requirements */}
+          <div className="mt-3 text-gray-400 text-xs italic select-none">
+            Password must contain at least
+            <ul className="flex flex-wrap gap-x-3 gap-y-1 mt-1 text-gray-500">
+              <li className={validations.length ? "text-green-600" : ""}>
+                • 8 Characters
+              </li>
+              <li className={validations.uppercase ? "text-green-600" : ""}>
+                • One uppercase
+              </li>
+              <li className={validations.special ? "text-green-600" : ""}>
+                • One special case character
+              </li>
+              <li className={validations.lowercase ? "text-green-600" : ""}>
+                • One lowercase
+              </li>
+              <li className={validations.number ? "text-green-600" : ""}>
+                • One number
+              </li>
+            </ul>
+          </div>
+
+          {/* Submit Button */}
           <button
             type="submit"
-            disabled={loading}
-            className={`w-full ${
-              loading ? "bg-gray-300" : "bg-purple-600 hover:bg-purple-700"
-            } text-white font-medium py-2 rounded-md mt-6 transition-all flex items-center justify-center gap-2`}
+            disabled={!isFormValid || loading}
+            className={`w-full rounded-md py-2 text-white font-medium mt-6 transition-all ${
+              isFormValid && !loading
+                ? "bg-purple-600 hover:bg-purple-700"
+                : "bg-gray-300 cursor-not-allowed"
+            }`}
           >
-            {loading ? "Updating..." : "Update Password"}
+            {loading ? "Updating..." : "Verify"}
           </button>
 
+          {/* Status Message */}
           {status && (
             <p
               className={`text-sm mt-3 text-center ${

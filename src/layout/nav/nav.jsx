@@ -34,7 +34,11 @@ export default function Nav() {
               {l.label}
             </Link>
           ))}
-          <Button className="bg-button-background">Join The Community</Button>
+         
+        </div>
+
+        <div>
+             <Button className="bg-button-background">Join The Community</Button>
         </div>
 
         <img

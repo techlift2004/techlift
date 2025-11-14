@@ -3,7 +3,28 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "../../lib/supabaseClient";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-import toast from "react-hot-toast"; // ✅ import toast
+import toast from "react-hot-toast";
+
+// 🔹 Raw helper to check if a user exists in profiles table
+async function checkExistingUser(email) {
+  try {
+    const { data: existingUser, error } = await supabase
+      .from("profiles")
+      .select("id")
+      .eq("email", email)
+      .maybeSingle();
+
+    if (error) {
+      console.error("Error checking user:", error);
+      return false; // fallback, allow signup, Supabase will handle duplicates
+    }
+
+    return !!existingUser; // true if user exists
+  } catch (err) {
+    console.error("Unexpected error checking user:", err);
+    return false;
+  }
+}
 
 export default function AuthForm() {
   const [mode, setMode] = useState("signin"); // signin | signup
@@ -17,32 +38,62 @@ export default function AuthForm() {
     reset,
   } = useForm();
 
-  // ✅ Handle Google sign-in
+  // 🔹 Google Sign-in
   const handleGoogle = async () => {
     try {
-      const { error } = await supabase.auth.signInWithOAuth({ provider: "google" });
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: "google",
+      });
       if (error) throw error;
     } catch (err) {
       toast.error(err.message || "Google sign-in failed");
     }
   };
 
-  // ✅ Handle Email/Password
+  // 🔹 Email/Password Auth
   const onSubmit = async (data) => {
     const { email, password } = data;
 
     try {
       if (mode === "signin") {
-        const { error } = await supabase.auth.signInWithPassword({ email, password });
-        if (error) throw error;
+        const { error: signInError } = await supabase.auth.signInWithPassword({
+          email,
+          password,
+        });
+
+        if (signInError) throw signInError;
+
         toast.success("Signed in successfully!");
-        navigate("/"); // redirect after sign in
-      } else if (mode === "signup") {
-        const { error } = await supabase.auth.signUp({ email, password });
-        if (error) throw error;
-        toast.success("Check your email to verify your account!");
+        navigate("/");
+        return;
       }
-      reset();
+
+      if (mode === "signup") {
+        // 1️⃣ Pre-check profiles table
+        const exists = await checkExistingUser(email);
+        if (exists) {
+          toast.error("An account with this email already exists.");
+          return;
+        }
+
+        // 2️⃣ Proceed with Supabase signup
+        const { data: signUpData, error: signUpError } =
+          await supabase.auth.signUp({
+            email,
+            password,
+          });
+
+        if (signUpError) {
+          toast.error(signUpError.message);
+          return;
+        }
+
+        // 3️⃣ Success
+        toast.success(
+          "Account created! Check your email to verify your account."
+        );
+        reset();
+      }
     } catch (err) {
       toast.error(err.message || "Something went wrong");
     }
@@ -80,7 +131,9 @@ export default function AuthForm() {
               className="w-full border rounded-md px-3 py-2 focus:ring-2 focus:ring-purple-500 outline-none"
             />
             {errors.email && (
-              <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>
+              <p className="text-red-500 text-xs mt-1">
+                {errors.email.message}
+              </p>
             )}
           </div>
 
@@ -113,7 +166,7 @@ export default function AuthForm() {
             )}
           </div>
 
-          {/* Remember / Forgot */}
+          {/* Remember / Forgot Password */}
           {mode === "signin" && (
             <div className="flex justify-between items-center text-sm">
               <label className="flex items-center gap-1">
@@ -139,7 +192,7 @@ export default function AuthForm() {
           </button>
         </form>
 
-        {/* Switch Between Sign In / Sign Up */}
+        {/* Switch Between Modes */}
         <div className="text-center text-sm mt-4">
           {mode === "signin" ? (
             <p>
