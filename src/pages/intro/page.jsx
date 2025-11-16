@@ -142,7 +142,7 @@ export default function Page() {
         >
           <button
             className="px-8 py-3 bg-white hover:shadow-2xl text-text rounded-xl text-lg shadow-lg"
-            onClick={() => (window.location.href = "home")}
+            onClick={() => (window.location.href = "/home")}
           >
             Let’s Explore →
           </button>
