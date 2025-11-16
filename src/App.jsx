@@ -13,6 +13,7 @@ import Sponsor from "./pages/sponsor/page";
 import AuthForm from "./pages/auth/AuthForm";
 import ProtectedRoute from "./pages/auth/ProtectedRoute";
 import ResetPassword from "./pages/auth/ResetPassword";
+import Intro from "./pages/intro/page"
 
 export default function App() {
   return (
@@ -48,11 +49,13 @@ export default function App() {
           {/* ❌ These pages should NOT show Layout */}
           <Route path="/auth" element={<AuthForm />} />
           <Route path="/reset-password" element={<ResetPassword />} />
+            <Route index element={<Intro />} />
 
           {/* ✅ All other pages should show Layout */}
           <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
+            <Route path="home" element={<Home />} />
             <Route path="about" element={<About />} />
+          
 
             <Route
               path="event"

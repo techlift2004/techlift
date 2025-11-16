@@ -1,8 +1,30 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { client } from "../../lib/sanity";
+import { Button } from "@/components/ui/button";
 
-const POSTS_QUERY = `*[_type == "post"]|order(publishedAt desc)[0...12]{_id, title, publishedAt}`;
+function getPreviewText(body) {
+  if (!body) return "";
+  const plain = body
+    .filter(block => block._type === "block")
+    .map(block => block.children.map(child => child.text).join(""))
+    .join(" ");
+  return plain.split(" ").slice(0, 60).join(" ") + "...";
+}
+
+const POSTS_QUERY = `
+  *[_type == "post"] | order(publishedAt desc)[0...12]{
+    _id,
+    title,
+    publishedAt,
+    body,
+    image{
+      asset->{
+        url
+      }
+    }
+  }
+`;
 
 export default function Blog() {
   const [posts, setPosts] = useState([]);
@@ -16,24 +38,50 @@ export default function Blog() {
   }, []);
 
   return (
-    <main className="container mx-auto max-w-3xl p-8">
+    <main className="container mx-auto max-w-full p-8">
       <h1 className="text-4xl font-bold mb-8">Blog Posts</h1>
-      <ul className="flex flex-col gap-y-6">
+      <div className="flex flex-col gap-y-6">
         {posts.map((post) => (
-          <li key={post._id} className="p-4 border rounded-lg shadow-sm">
-            <h2 className="text-xl font-semibold">{post.title}</h2>
+          <div key={post._id} className="p-4 border rounded-lg flex flex-col md:flex-row justify-between gap-4 shadow-sm">
+
+           
+           <div className=" ">
+             {post.image?.asset?.url && (
+              <img
+                src={post.image.asset.url}
+                alt={post.title}
+                className="w-[70rem] max-h-[20rem] object-cover rounded-md"
+              />
+            )}
+           </div>
+
+          <div className="md:w-[90rem] w-full flex flex-col items-start justify-between py-">
+              <p className="text-[#7700CD] bg-[#F5EBFF] px-4 py-1 rounded-full text-[14px] font-semibold">
+                                        Featured Resource
+                                    </p>
+
+
+              <h2 className="text-xl font-poppin text-text font-semibold">{post.title}</h2>
+
+            {/* Preview Text */}
+            <p className="text-gray-600 font-poppin font-normal w-full mb-2">
+              {getPreviewText(post.body)}
+            </p>
+
             <p className="text-gray-500">
               {new Date(post.publishedAt).toLocaleDateString()}
             </p>
-            <Link
-              to={`/blog/${post._id}/detail`}
-              className="text-blue-600 hover:underline mt-2 inline-block"
+
+            <Button
+            onClick={() => (window.location.href = `/blog/${post._id}/detail`)}
+              className="bg-button-background font-poppin font-medium inline-block"
             >
               See details →
-            </Link>
-          </li>
+            </Button>
+          </div>
+          </div>
         ))}
-      </ul>
+      </div>
     </main>
   );
 }

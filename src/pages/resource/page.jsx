@@ -21,7 +21,7 @@ export default function page() {
                 </div>
 
 
-                <div className="flex flex-row justify-center md:justify-end gap-2 sm:gap-4 items-center">
+                <div className="flex flex-row justify-center md:justify-end gap-2 sm:gap-0 items-center">
                     <img
                         src={hero1}
                         className="w-[140px] sm:w-[180px] md:w-[215px] h-auto"
