@@ -41,7 +41,7 @@ export default function Page() {
 
 
   return (
-    <div className="relative h-screen w-full overflow-hidden flex flex-col gap-10 items-center justify-center">
+    <div className="relative h-screen w-full overflow-hidden flex flex-col gap-10 px-10 items-center justify-center">
       {/* Web3 Gradient Background Layers */}
       <div
         className="absolute inset-0"
@@ -138,7 +138,7 @@ export default function Page() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.5 }}
-          className="z-20 mt-10"
+          className="z-20 "
         >
           <button
             className="px-8 py-3 bg-white hover:shadow-2xl text-text rounded-xl text-lg shadow-lg"
