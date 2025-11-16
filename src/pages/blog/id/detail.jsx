@@ -56,7 +56,7 @@ export default function BlogDetail() {
     : null;
 
   return (
-    <main className="container mx-auto p-8 max-w-3xl flex flex-col gap-4">
+    <main className="container mx-auto p-8 max-w-3xl flex flex-col mt-12 gap-4">
       <Link to="/blog" className="hover:underline">
         ← Back to blog
       </Link>

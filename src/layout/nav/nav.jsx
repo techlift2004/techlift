@@ -9,7 +9,7 @@ export default function Nav() {
   const [open, setOpen] = React.useState(false);
 
   const links = [
-    { to: "/", label: "Home" },
+    { to: "home", label: "Home" },
     { to: "/about", label: "About" },
     { to: "/blog", label: "Blog" },
     { to: "/event", label: "Events" },
