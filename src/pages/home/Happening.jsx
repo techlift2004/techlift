@@ -17,7 +17,7 @@ const Happenings = () => {
           </div>
           <iframe
             className="w-full h-64 md:h-96 rounded-2xl"
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ" // replace with your actual video link
+            src="https://www.youtube.com/@Techlift-official" // replace with your actual video link
             title="Breaking into Tech From Beginner to Professional"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen

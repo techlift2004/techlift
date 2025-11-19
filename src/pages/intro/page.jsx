@@ -141,10 +141,10 @@ export default function Page() {
           className="z-20 "
         >
           <button
-            className="px-8 py-3 bg-white hover:shadow-2xl text-text rounded-xl text-lg shadow-lg"
+            className="px-8 py-3 bg-white hover:shadow-2xl text-text rounded-xl text-lg shadow-lg cursor-pointer"
             onClick={() => (window.location.href = "/home")}
           >
-            Let’s Explore →
+            Let's Explore →
           </button>
         </motion.div>
       )}
