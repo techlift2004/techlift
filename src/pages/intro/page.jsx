@@ -142,7 +142,7 @@ export default function Page() {
           className="z-20 "
         >
           <Link
-           href="/home"
+           href="./home"
             className="px-8 py-3 bg-white hover:shadow-2xl text-text rounded-xl text-lg shadow-lg cursor-pointer"
            
           >
