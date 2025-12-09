@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import bgImage from "@/assets/contact/logo.svg";
 import comm from "@/assets/comm.svg";
+import { Link } from "react-router-dom";
 
 
 // Small reusable animated floating shapes
@@ -142,7 +143,7 @@ export default function Page() {
           className="z-20 "
         >
           <Link
-           href="./home"
+           to="/home"
             className="px-8 py-3 bg-white hover:shadow-2xl text-text rounded-xl text-lg shadow-lg cursor-pointer"
            
           >
