@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import bgImage from "@/assets/contact/logo.svg";
 import comm from "@/assets/comm.svg";
 
+
 // Small reusable animated floating shapes
 function FloatingShape({ children, size = 80, top, left, delay }) {
   return (

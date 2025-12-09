@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 
 import Layout from "./Layout";
-import Home from "./pages/home/page";
+import Home from "./pages/home/home";
 import About from "./pages/about/page";
 import Event from "./pages/event/page";
 import Contact from "./pages/contact/page";
