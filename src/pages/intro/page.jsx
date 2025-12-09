@@ -141,12 +141,13 @@ export default function Page() {
           transition={{ duration: 1.5 }}
           className="z-20 "
         >
-          <button
+          <Link
+           href="/home"
             className="px-8 py-3 bg-white hover:shadow-2xl text-text rounded-xl text-lg shadow-lg cursor-pointer"
-            onClick={() => (window.location.href = "/home")}
+           
           >
             Let's Explore →
-          </button>
+          </Link>
         </motion.div>
       )}
 
