@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { X } from "lucide-react";
 
+
 export default function Nav() {
   const [open, setOpen] = React.useState(false);
 
@@ -17,6 +18,9 @@ export default function Nav() {
     { to: "/sponsor", label: "Sponsor Us" },
     { to: "/contact", label: "Contact Us" },
   ];
+
+
+
 
   return (
     <>
@@ -38,7 +42,7 @@ export default function Nav() {
         </div>
 
         <div>
-             <Button className="bg-button-background">Join The Community</Button>
+             <Button onClick={() => window.open("https://forms.gle/ZEF5oYcAmSPakr3K9", "_blank")} className="bg-button-background">Join The Community</Button>
         </div>
 
         <img

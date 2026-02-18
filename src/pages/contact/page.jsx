@@ -102,7 +102,7 @@ export default function Page() {
                             <img src={email} alt="" height={55} width={55} />
                             <div className='flex flex-col text-white font-Inter font-normal text-[14px]'>
                                 <p>Email</p>
-                                <a href="">awoyemititilayodebo@gmail.com</a>
+                                <a href="mailto:jointechlift@gmail.com">jointechlift@gmail.com</a>
                             </div>
                         </div>
 
@@ -110,7 +110,7 @@ export default function Page() {
                             <img src={twitter} alt="" height={55} width={55} />
                             <div className='flex flex-col text-white font-Inter font-normal text-[14px]'>
                                 <p>Twitter </p>
-                                <a href="">@Techlifts.com</a>
+                                <a href="https://x.com/Techliftteam?t=gldZwtXCbnUzd6K9l_pDHQ&s=09">@Techliftteam</a>
                             </div>
                         </div>
 
@@ -118,7 +118,7 @@ export default function Page() {
                             <img src={instagram} alt="" height={55} width={55} />
                             <div className='flex flex-col text-white font-Inter font-normal text-[14px]'>
                                 <p>instagram </p>
-                                <a href="">@Techlifts.com</a>
+                                <a href=" https://www.instagram.com/techlift_official?igsh=YzljYTk1ODg3Zg==">@techlift_official</a>
                             </div>
                         </div>
 
@@ -126,7 +126,7 @@ export default function Page() {
                             <img src={linkedin} alt="" height={55} width={55} />
                             <div className='flex flex-col text-white font-Inter font-normal text-[14px]'>
                                 <p>LinkedIn </p>
-                                <a href="">@Techlifts.com</a>
+                                <a href="https://www.linkedin.com/company/techlift-official/">@techlift-official</a>
                             </div>
                         </div>
 
