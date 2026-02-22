@@ -1,35 +1,36 @@
 import React from "react";
 import Support from "../about/id/support";
+import logo from "@/assets/techlift.svg";
 
 const SupportersAndTestimonials = () => {
   const testimonials = [
     {
       id: 1,
-      name: "Janet Doe",
-      role: "Technical Operator, UAE",
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit enim net, proin faucibus nibh et sagittis a.",
-      avatar: "/Avatars.svg",
+      name: "David K",
+      role: "Backend Developer",
+      text: "TechLift didn’t just give me free resources — it helped me understand how to learn. The mentors were patient, the connections were real, and I now work as a junior backend engineer thanks to the guidance I received.",
+      avatar: logo,
     },
     {
       id: 2,
-      name: "Janet Doe",
-      role: "Technical Operator, UAE",
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit enim net, proin faucibus nibh et sagittis a.",
-      avatar: "/Avatars.svg",
+      name: "Precious E",
+      role: "Full Stack Developer",
+      text: "I used to struggle with consistency and motivation. But being part of the TechLift community kept me accountable. I gained clarity, built a portfolio, and now I’m preparing for my first job interview with confidence.",
+      avatar: logo,
     },
     {
       id: 3,
-      name: "Janet Doe",
-      role: "Technical Operator, UAE",
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit enim net, proin faucibus nibh et sagittis a.",
-      avatar: "/Avatars.svg",
+      name: "Emmanuel T",
+      role: "Data Analyst",
+      text: "The TechLift community feels like family. Everyone genuinely wants to see you win. I got help with data support, study buddy groups, and interview prep — all of which made my learning journey smoother.",
+      avatar: logo,
     },
     {
       id: 4,
-      name: "Janet Doe",
-      role: "Technical Operator, UAE",
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit enim net, proin faucibus nibh et sagittis a.",
-      avatar: "/Avatars.svg",
+      name: "Sarah O",
+      role: "UI/UX Designer",
+      text: "I joined TechLift when I didn’t even know where to start. With the mentorship and real-life tech conversations, I went from beginner to landing freelance projects faster than I expected.",
+      avatar: logo,
     },
   ];
 

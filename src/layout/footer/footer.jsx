@@ -1,15 +1,15 @@
 import React from "react";
 import twitterIcon from "../../assets/icons/twitter2.svg";
-import facebookIcon from "../../assets/icons/facebook2.svg";
 import instagramIcon from "../../assets/icons/instagram2.svg";
 import linkedInIcon from "../../assets/icons/linkedin2.svg";
 import companyIcon from "../../assets/techlift.svg";
+import { TicketCheckIcon } from "lucide-react";
 
 const socials = [
-  { href: "https://twitter.com/yourhandle", icon: twitterIcon },
-  { href: "https://facebook.com/yourhandle", icon: facebookIcon },
-  { href: "https://instagram.com/yourhandle", icon: instagramIcon },
-  { href: "https://linkedin.com/yourhandle", icon: linkedInIcon },
+  { href: "https://x.com/Techliftteam?t=gldZwtXCbnUzd6K9l_pDHQ&s=09", icon: twitterIcon },
+  { href: "https://www.tiktok.com/@techliftteam?_t=ZM-8sksdbifl6z&_r=1", icon: TicketCheckIcon },
+  { href: "https://www.instagram.com/techlift_official?igsh=YzljYTk1ODg3Zg==", icon: instagramIcon },
+  { href: "https://www.linkedin.com/company/techlift-official/", icon: linkedInIcon },
 ];
 
 const quickLinks = ["Home", "About Us", "Get Resources", "Sponsor Us"];
