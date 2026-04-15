@@ -21,7 +21,7 @@ export default function page() {
                       
             <h2 className=''>Every $1 goes a long way.</h2>
 
-        <Button className='bg-button-background mt-5 items-start px-7  '>Donate Here</Button>
+        <Button onClick={() => window.open("https://forms.gle/nXpPgkAynYv9aJuq7", "_blank")} className='bg-button-background mt-5 items-start px-7  '>Donate Here</Button>
 
                
         </div>

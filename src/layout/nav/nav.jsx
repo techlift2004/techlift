@@ -42,7 +42,7 @@ export default function Nav() {
         </div>
 
         <div>
-             <Button onClick={() => window.open("https://forms.gle/ZEF5oYcAmSPakr3K9", "_blank")} className="bg-button-background">Join The Community</Button>
+             <Button onClick={() => window.open("https://forms.gle/ZEF5oYcAmSPakr3K9", "_blank")} className="bg-button-background hidden md:block">Join The Community</Button>
         </div>
 
         <img

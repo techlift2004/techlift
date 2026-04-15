@@ -1,13 +1,13 @@
 import React from "react";
 import { Card } from "@/components/ui/card";
-import image1 from "@/assets/techlift.svg";
+import image1 from "@/assets/stel.jpeg";
 
 export default function Support() {
   const team = [
-    { image: image1, link: "https://example.com/1" },
-    { image: image1, link: "https://example.com/2" },
-    { image: image1, link: "https://example.com/3" },
-    { image: image1, link: "https://example.com/4" },
+    { image: image1, link: "https://www.instagram.com/steltech1?igsh=ejV2NjJxMzJ2MDNy&utm_source=qr", dis: "STEL TECH" },
+    // { image: image1, link: "https://example.com/2" },
+    // { image: image1, link: "https://example.com/3" },
+    // { image: image1, link: "https://example.com/4" },
   ];
 
   return (
@@ -36,6 +36,8 @@ export default function Support() {
                   alt={`Supporter ${index}`}
                   className="w-full p-4 max-h-[80px] sm:max-h-[90px] md:max-h-[100px] object-contain"
                 />
+
+                <p className="text-center font-Nunito text-sm sm:text-base md:text-lg font-bold mt-2">{t.dis}</p>
               </div>
             </a>
           </Card>
