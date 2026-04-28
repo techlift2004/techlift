@@ -11,7 +11,7 @@ export default function page() {
                 Sponsor Us
             </h1>
 
-            <p className='text-text text-[20px] text-center font-Nunito font-normal '>Proudly  supported by industries leaders </p>
+            <p className='text-text text-[20px] text-center font-Nunito font-normal '>Support The Community </p>
 
         </div>
 
@@ -19,7 +19,7 @@ export default function page() {
 
         <div className='flex flex-col items-center '>
                       
-            <h2 className=''>Every $1 goes a long way.</h2>
+            <h2 className=''>Every 1Naira goes a long way.</h2>
 
         <Button onClick={() => window.open("https://forms.gle/nXpPgkAynYv9aJuq7", "_blank")} className='bg-button-background mt-5 items-start px-7  '>Donate Here</Button>
 
