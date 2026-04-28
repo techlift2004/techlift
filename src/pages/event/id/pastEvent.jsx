@@ -59,9 +59,17 @@ export default function CardComponent() {
                     </p>
                   </div>
 
-                  <Button className='bg-button-background text-[14px] sm:text-[18px] font-poppin font-medium py-4 sm:py-6 mt-3 w-full sm:w-auto'>
-                    Learn More
-                  </Button>
+                  {member.link ? (
+                    <Button asChild className='bg-button-background text-[14px] sm:text-[18px] font-poppin font-medium py-4 sm:py-6 mt-3 w-full sm:w-auto'>
+                      <a href={member.link} target="_blank" rel="noopener noreferrer">
+                        Register
+                      </a>
+                    </Button>
+                  ) : (
+                    <Button disabled className='bg-button-background text-[14px] sm:text-[18px] font-poppin font-medium py-4 sm:py-6 mt-3 w-full sm:w-auto'>
+                      Register
+                    </Button>
+                  )}
                 </div>
               </div>
             </div>
