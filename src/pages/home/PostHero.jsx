@@ -1,7 +1,8 @@
 const PostHero = () => {
   return (
     <div className="bg-[#F6ECFD] border-y-2 border-dashed border-[#4B0081] px-5 py-10 md:py-20 lg:px-40 text-center">
-      <div className="flex w-full justify-start">
+      <div className="flex w-
+       justify-start">
         <img
           src="/quoteLeft.svg"
           alt="quote"

@@ -3,11 +3,10 @@ import twitterIcon from "../../assets/icons/twitter2.svg";
 import instagramIcon from "../../assets/icons/instagram2.svg";
 import linkedInIcon from "../../assets/icons/linkedin2.svg";
 import companyIcon from "../../assets/techlift.svg";
-import { TicketCheckIcon } from "lucide-react";
+import { FaTiktok } from "react-icons/fa";
 
 const socials = [
   { href: "https://x.com/Techliftteam?t=gldZwtXCbnUzd6K9l_pDHQ&s=09", icon: twitterIcon },
-  { href: "https://www.tiktok.com/@techliftteam?_t=ZM-8sksdbifl6z&_r=1", icon: TicketCheckIcon },
   { href: "https://www.instagram.com/techlift_official?igsh=YzljYTk1ODg3Zg==", icon: instagramIcon },
   { href: "https://www.linkedin.com/company/techlift-official/", icon: linkedInIcon },
 ];
@@ -44,6 +43,14 @@ export default function Footer() {
                 <img src={s.icon} alt="social-icon" className="w-6 h-6" />
               </a>
             ))}
+             <a
+                
+                href="https://www.tiktok.com/@techliftteam?_t=ZM-8sksdbifl6z&_r=1"
+               
+              >
+                <FaTiktok className="w-6 h-6 text-gray-700" />
+                {/* <img src={s.icon} alt="social-icon" className="w-6 h-6" /> */}
+              </a>
           </div>
         </div>
 

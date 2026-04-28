@@ -1,6 +1,6 @@
 import React from "react";
 import Support from "../about/id/support";
-import logo from "@/assets/techlift.svg";
+import logo from "@/assets/tech.png";
 
 const SupportersAndTestimonials = () => {
   const testimonials = [
