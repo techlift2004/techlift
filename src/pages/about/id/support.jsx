@@ -31,11 +31,13 @@ export default function Support() {
           >
             <a href={t.link} target="_blank" rel="noopener noreferrer">
               <div className="flex flex-col items-center justify-center h-full">
-                <img
-                  src={t.image}
-                  alt={`Supporter ${index}`}
-                  className="w-full p-4 max-h-[80px] sm:max-h-[90px] md:max-h-[100px] object-contain"
-                />
+                <div className="w-full h-[110px] sm:h-[120px] md:h-[130px] p-4 flex items-center justify-center">
+                  <img
+                    src={t.image}
+                    alt={`Supporter ${index}`}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
 
                 <p className="text-center font-Nunito text-sm sm:text-base md:text-lg font-bold mt-2">{t.dis}</p>
               </div>
