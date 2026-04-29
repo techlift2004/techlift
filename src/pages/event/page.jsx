@@ -25,17 +25,21 @@ export default function page() {
                 </div>
 
 
-                <div className="flex flex-row justify-center md:justify-end gap-2 sm:gap-0 items-center">
-                    <img
-                        src={hero1}
-                        className="w-[140px] sm:w-[180px] md:w-[215px] h-auto"
-                        alt="TechLift event 1"
-                    />
-                    <img
-                        src={hero2}
-                        className="w-[180px] sm:w-[230px] md:w-[316px] h-auto"
-                        alt="TechLift event 2"
-                    />
+                <div className="flex flex-row justify-center md:justify-end gap-2 sm:gap-0 items-end">
+                    <div className="w-[140px] sm:w-[180px] md:w-[215px] h-[180px] sm:h-[220px] md:h-[250px] flex items-end justify-center">
+                        <img
+                            src={hero1}
+                            className="w-full h-full object-contain"
+                            alt="TechLift event 1"
+                        />
+                    </div>
+                    <div className="w-[180px] sm:w-[230px] md:w-[316px] h-[200px] sm:h-[250px] md:h-[320px] flex items-end justify-center">
+                        <img
+                            src={hero2}
+                            className="w-full h-full object-contain"
+                            alt="TechLift event 2"
+                        />
+                    </div>
                 </div>
             </div>
 

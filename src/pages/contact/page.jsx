@@ -17,6 +17,56 @@ import linkedin from '@/assets/icons/linkedin1.svg'
 
 export default function Page() {
     const [phone, setPhone] = useState('');
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        message: '',
+    });
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitMessage, setSubmitMessage] = useState('');
+
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        setFormData((prev) => ({ ...prev, [name]: value }));
+    };
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        setIsSubmitting(true);
+        setSubmitMessage('');
+
+        try {
+            const response = await fetch('https://formsubmit.co/ajax/jointechlift@gmail.com', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    Accept: 'application/json',
+                },
+                body: JSON.stringify({
+                    name: formData.name,
+                    email: formData.email,
+                    phone,
+                    message: formData.message,
+                    _subject: 'New Contact Message from TechLift',
+                }),
+            });
+
+            const result = await response.json();
+
+            if (!response.ok || result.success === 'false') {
+                throw new Error('Failed to send message');
+            }
+
+            setSubmitMessage('Message sent successfully. We will get back to you soon.');
+            setFormData({ name: '', email: '', message: '' });
+            setPhone('');
+        } catch (error) {
+            setSubmitMessage('Could not send message right now. Please try again.');
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
+
     return (
         <div className='pt-20'> 
             <div className="px-5 sm:px-8 md:px-10 py-10 md:py-14 bg-gradient-to-b from-[#3C0067] to-[#7700CD] flex flex-col md:flex-row justify-between  items-center gap-10 md:gap-0">
@@ -56,9 +106,16 @@ export default function Page() {
                         <p className='font-poppin font-normal text-gray-text text-[16px]'>Fill up the form and our team will get back to you </p>
                     </div>
 
-                    <form action="" className='flex flex-col gap-8'>
+                    <form onSubmit={handleSubmit} className='flex flex-col gap-8'>
                         <Label className='text-[15px] font-poppin font-medium flex flex-col gap-1 ' htmlFor="picture">Name
-                            <Input type="text" placeholder="Full Name" />
+                            <Input
+                                type="text"
+                                name="name"
+                                value={formData.name}
+                                onChange={handleChange}
+                                placeholder="Full Name"
+                                required
+                            />
                         </Label>
 
                         <Label className='text-[15px] font-poppin font-medium flex flex-col gap-1'>Phone No <PhoneInput
@@ -70,15 +127,38 @@ export default function Page() {
                         </Label>
 
                         <Label className='text-[15px] font-poppin font-medium flex flex-col gap-1 ' htmlFor="picture">Email Address
-                            <Input type="email" placeholder="example@gmail.com" />
+                            <Input
+                                type="email"
+                                name="email"
+                                value={formData.email}
+                                onChange={handleChange}
+                                placeholder="example@gmail.com"
+                                required
+                            />
                         </Label>
 
                         <Label className='text-[15px] font-poppin font-medium flex flex-col gap-1 ' htmlFor="picture">Messages
-                            <Textarea type="text" placeholder="I Love to be part of your community and want to support in my little way... " />
+                            <Textarea
+                                name="message"
+                                value={formData.message}
+                                onChange={handleChange}
+                                placeholder="I Love to be part of your community and want to support in my little way... "
+                                required
+                            />
                         </Label>
-                    </form>
 
-                    <Button className='bg-button-background mt-5 items-start px-7  '>Send Messages</Button>
+                        <Button
+                            type="submit"
+                            disabled={isSubmitting}
+                            className='bg-button-background mt-2 items-start px-7'
+                        >
+                            {isSubmitting ? 'Sending...' : 'Send Messages'}
+                        </Button>
+
+                        {submitMessage && (
+                            <p className='text-sm font-Nunito text-gray-text'>{submitMessage}</p>
+                        )}
+                    </form>
 
                 </div>
 
@@ -118,7 +198,7 @@ export default function Page() {
                             <img src={instagram} alt="" height={55} width={55} />
                             <div className='flex flex-col text-white font-Inter font-normal text-[14px]'>
                                 <p>instagram </p>
-                                <a href=" https://www.instagram.com/techlift_official?igsh=YzljYTk1ODg3Zg==">@techlift_official</a>
+                                <a href="https://www.instagram.com/jointechlift?igsh=MWIyNDMyZDU5YXFkdg==">@techlift_official</a>
                             </div>
                         </div>
 

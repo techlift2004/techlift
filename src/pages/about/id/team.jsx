@@ -44,11 +44,15 @@ export default function Team() {
               className="w-full h-full rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300"
             >
               <div className="flex flex-col items-center h-full pb-5">
-                <img
-                  src={member.image_url}
-                  alt={member.name}
-                  className="w-[19rem] px-4 py-3 h-[20rem]"
-                />
+                <div className="w-full px-4 pt-4">
+                  <div className="w-full aspect-[4/5] overflow-hidden rounded-xl bg-gray-100">
+                    <img
+                      src={member.image_url}
+                      alt={member.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
                 <div className="flex flex-col justify-between items-center pt-3 gap-5 flex-grow w-full px-3 sm:px-5">
                   <div className="flex flex-col items-center text-center">
                     <h2 className="font-Inter font-medium text-text text-[18px] sm:text-[20px] md:text-[22px]">

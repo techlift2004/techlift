@@ -7,7 +7,7 @@ import { FaTiktok } from "react-icons/fa";
 
 const socials = [
   { href: "https://x.com/Techliftteam?t=gldZwtXCbnUzd6K9l_pDHQ&s=09", icon: twitterIcon },
-  { href: "https://www.instagram.com/techlift_official?igsh=YzljYTk1ODg3Zg==", icon: instagramIcon },
+  { href: "https://www.instagram.com/jointechlift?igsh=MWIyNDMyZDU5YXFkdg==", icon: instagramIcon },
   { href: "https://www.linkedin.com/company/techlift-official/", icon: linkedInIcon },
 ];
 
@@ -63,7 +63,7 @@ export default function Footer() {
       </div>
 
       <div className="mx-auto text-center w-full text-[#7C7C7C] text-xs mt-6">
-        <p>&copy; 2025 TechLifts • Terms • Privacy</p>
+        <p>&copy; 2026 TechLifts • Terms • Privacy</p>
       </div>
     </div>
   );

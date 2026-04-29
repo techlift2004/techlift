@@ -84,7 +84,7 @@ export default function Nav() {
 
         <Button
           className="bg-button-background w-full lg:w-auto"
-          onClick={() => setOpen(false)}
+          onClick={() => window.open("https://forms.gle/ZEF5oYcAmSPakr3K9", "_blank")}
         >
           Join The Community
         </Button>

@@ -33,7 +33,9 @@ export default function HeroSection() {
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 mt-8">
               <Link
-                to="/"
+                to="https://forms.gle/ZEF5oYcAmSPakr3K9"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="block md:hidden mx-auto text-center bg-[#6C4AF2] text-white px-6 py-3 rounded-xl font-semibold hover:bg-[#583cd9] transition-all duration-300"
               >
                 Join the community
