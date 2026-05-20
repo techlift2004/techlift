@@ -48,35 +48,32 @@ export default function Blog() {
         </div>
       </div>
 
-      <div className="px-8 flex flex-col gap-y-6">
+      <div className="px-4 sm:px-8 flex flex-col gap-y-6">
         {posts.map((post) => (
           <div key={post._id} className="p-4 border rounded-lg flex flex-col md:flex-row justify-between gap-4 shadow-sm">
 
-
-            <div className=" ">
+            <div className="w-full md:w-2/5 flex-shrink-0">
               {post.image?.asset?.url && (
                 <img
                   src={post.image.asset.url}
                   alt={post.title}
-                  className="w-[70rem] max-h-[20rem] object-cover rounded-md"
+                  className="w-full h-48 md:h-56 object-cover rounded-md"
                 />
               )}
             </div>
 
-            <div className="md:w-[90rem] w-full flex flex-col items-start justify-between py-">
+            <div className="w-full md:flex-1 flex flex-col items-start justify-between gap-3 py-1">
               <p className="text-[#7700CD] bg-[#F5EBFF] px-4 py-1 rounded-full text-[14px] font-semibold">
                 Featured Resource
               </p>
 
-
               <h2 className="text-xl font-poppin text-text font-semibold">{post.title}</h2>
 
-              {/* Preview Text */}
-              <p className="text-gray-600 font-poppin font-normal w-full mb-2">
+              <p className="text-gray-600 font-poppin font-normal w-full">
                 {getPreviewText(post.body)}
               </p>
 
-              <p className="text-gray-500">
+              <p className="text-gray-500 text-sm">
                 {new Date(post.publishedAt).toLocaleDateString()}
               </p>
 
