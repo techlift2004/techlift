@@ -1,6 +1,4 @@
 import React from 'react'
-import hero1 from "@/assets/contact/hero1.svg";
-import hero2 from "@/assets/contact/hero2.svg";
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@radix-ui/react-label';
@@ -68,34 +66,38 @@ export default function Page() {
     };
 
     return (
-        <div className='pt-20'> 
+        <div className='pt-20'>
             <div className="px-5 sm:px-8 md:px-10 py-10 md:py-14 bg-gradient-to-b from-[#3C0067] to-[#7700CD] flex flex-col md:flex-row justify-between  items-center gap-10 md:gap-0">
-                 <div className="flex flex-col items-center md:items-start gap-5 md:gap-6 max-w-[760px] text-center md:text-left">
-                                    <h1 className="text-[48px] sm:text-[46px] md:text-[48px] font-Nunito font-bold text-white leading-tight">
-                                         Contact Us Information
-                                    </h1>
-                                    <p className="font-Nunito font-normal text-white text-[16px] sm:text-[18px] md:text-[20px] max-w-[580px] mx-auto md:mx-0">
-                                         We ‘d love to hear from you
-                                    </p>
-                                    <Button className="bg-button-background rounded-2xl py-4 px-8 sm:py-5 sm:px-10 text-[16px] sm:text-[18px] mt-3">
-                                        Contact Us Now
-                                    </Button>
-                                </div>
-                
-                
-                                <div className="flex flex-row justify-center md:justify-end gap-2 sm:gap-0 items-center">
-                                    <img
-                                        src={hero1}
-                                        className="w-[140px] sm:w-[180px] md:w-[215px] h-auto"
-                                        alt="TechLift event 1"
-                                    />
-                                    <img
-                                        src={hero2}
-                                        className="w-[180px] sm:w-[230px] md:w-[316px] h-auto"
-                                        alt="TechLift event 2"
-                                    />
-                                </div>
-                
+                <div className="flex flex-col items-center md:items-start gap-5 md:gap-6 max-w-[760px] text-center md:text-left">
+                    <h1 className="text-[48px] sm:text-[46px] md:text-[48px] font-Nunito font-bold text-white leading-tight">
+                        Contact Us
+                    </h1>
+                    <p className="font-Nunito font-normal text-white text-[16px] sm:text-[18px] md:text-[20px] max-w-[580px] mx-auto md:mx-0">
+                        Get in touch with TechLift. We’d love to hear from you and answer any questions.
+                    </p>
+                    <Button className="bg-button-background rounded-2xl py-4 px-8 sm:py-5 sm:px-10 text-[16px] sm:text-[18px] mt-3">
+                        Contact Us Now
+                    </Button>
+                </div>
+
+
+                <div className="flex flex-row justify-center md:justify-end gap-4 items-center relative py-6 md:py-0">
+                    <div className="rounded-2xl p-1 bg-white/20 backdrop-blur-sm shadow-[0_15px_40px_rgba(0,0,0,0.5)] z-10 translate-y-6 hover:scale-105 transition-all duration-500">
+                        <img
+                            src="https://images.unsplash.com/photo-1573164574572-cb89e39749b4?auto=format&fit=crop&w=600&q=80"
+                            className="w-[140px] sm:w-[180px] md:w-[215px] h-[150px] sm:h-[200px] md:h-[240px] object-cover rounded-[12px]"
+                            alt="Working on laptop"
+                        />
+                    </div>
+                    <div className="rounded-2xl p-1 bg-white/20 backdrop-blur-sm shadow-[0_15px_40px_rgba(0,0,0,0.4)] z-0 -translate-x-6 hover:scale-105 hover:z-20 transition-all duration-500">
+                        <img
+                            src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&w=600&q=80"
+                            className="w-[180px] sm:w-[230px] md:w-[316px] h-[200px] sm:h-[260px] md:h-[320px] object-cover rounded-[12px]"
+                            alt="Team communication"
+                        />
+                    </div>
+                </div>
+
             </div>
 
             <div className='py-10 px-2 md:px-10 flex flex-col md:flex-row justify-center gap-10 md:gap-28  '>
@@ -222,9 +224,9 @@ export default function Page() {
                     Looking For the Right Community to join
                     TechLift is here
                 </h1>
-               <Button className='bg-white text-button-background font-poppin font-normal'>
+                <Button className='bg-white text-button-background font-poppin font-normal'>
                     Join the community
-               </Button>
+                </Button>
 
             </div>
         </div>

@@ -41,7 +41,7 @@ export default function HeroSection() {
                 Join the community
               </Link>
               <a
-                href="#events"
+                href="/events"
                 className="text-[#6C4AF2] font-semibold italic text-base flex justify-between items-center gap-1 mx-auto md:mx-0"
               >
                 See Upcoming Events{" "}

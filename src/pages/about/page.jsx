@@ -1,7 +1,5 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
-import hero1 from "@/assets/about/abouthero.svg";
-import hero2 from "@/assets/about/abouthero2.svg";
 import achive from "@/assets/icons/achive.svg";
 import { Card } from "@/components/ui/card";
 import vision from "@/assets/icons/vision.svg";
@@ -39,13 +37,10 @@ export default function Page() {
         {/* Left content */}
         <div className="flex flex-col items-center md:items-start gap-6 max-w-[760px] text-center lg:text-left">
           <h1 className="text-[42px] sm:text-3xl md:text-4xl lg:text-[48px] font-Nunito font-bold text-white leading-snug">
-            Empowering the Next Generation of Tech Talents through Learning and
-            Collaboration
+            About Us
           </h1>
           <p className="font-normal text-base sm:text-lg md:text-[20px] text-white font-Nunito max-w-[580px] mx-auto lg:mx-0">
-            Your Number 1 Plug for Finding Talented Professionals. You are sure
-            to get trusted, creative, and detailed professionals all over the
-            world.
+            Empowering the Next Generation of Tech Talents through Learning and Collaboration.
           </p>
           <Button className="bg-button-background rounded-2xl py-4 px-8 text-white font-semibold hover:opacity-90 transition">
             Explore Platform
@@ -53,17 +48,21 @@ export default function Page() {
         </div>
 
         {/* Right Images */}
-        <div className="flex flex-row gap-0 items-center justify-center">
-          <img
-            src={hero2}
-            className="max-w-[140px] sm:max-w-[180px] md:max-w-[215px] h-auto"
-            alt="Hero"
-          />
-          <img
-            src={hero1}
-            className="max-w-[200px] sm:max-w-[260px] md:max-w-[316px] h-auto"
-            alt="Hero"
-          />
+        <div className="flex flex-row gap-4 items-center justify-center relative">
+          <div className="rounded-2xl p-1 bg-white/20 backdrop-blur-sm shadow-[0_15px_40px_rgba(0,0,0,0.5)] z-10 translate-y-8 -rotate-3 hover:rotate-0 hover:scale-105 transition-all duration-500">
+            <img
+              src="https://images.unsplash.com/photo-1531123897727-8f129e1bfd8c?auto=format&fit=crop&w=600&q=80"
+              className="max-w-[140px] sm:max-w-[180px] md:max-w-[215px] h-[160px] md:h-[220px] rounded-[12px] object-cover"
+              alt="Team strategy meeting"
+            />
+          </div>
+          <div className="rounded-2xl p-1 bg-white/20 backdrop-blur-sm shadow-[0_15px_40px_rgba(0,0,0,0.4)] rotate-2 z-0 -translate-x-8 hover:rotate-0 hover:scale-105 hover:z-20 transition-all duration-500">
+            <img
+              src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=600&q=80"
+              className="max-w-[200px] sm:max-w-[260px] md:max-w-[316px] h-[250px] sm:h-[300px] md:h-[360px] rounded-[12px] object-cover"
+              alt="Creative collaboration"
+            />
+          </div>
         </div>
       </div>
 
@@ -101,13 +100,13 @@ export default function Page() {
           ))}
         </div>
 
-       
-          <Team />
-        
 
-       
-          <Support />
-       
+        <Team />
+
+
+
+        <Support />
+
       </div>
     </div>
   );

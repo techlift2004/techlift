@@ -6,16 +6,19 @@ const LearningHub = () => {
       title: "E-book & Guides",
       desc: "Downloadable PDFs or mini-books.",
       img: "/e-books.svg",
+      link: "/resource",
     },
     {
       title: "Community Resources",
       desc: "FAQs, Share Experiences.",
       img: "/resources.svg",
+      link: "/resource",
     },
     {
       title: "Case Studies, Success Story",
       desc: "Real life success story by TechLifts.",
       img: "/case-studies.svg",
+      link: "/resource",
     },
   ];
 
@@ -32,7 +35,8 @@ const LearningHub = () => {
 
         <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
           {items.map((item, i) => (
-            <div
+            <a
+            href={item.link}
               key={i}
               className="bg-white rounded-2xl shadow hover:shadow-lg transition duration-300 p-5 flex flex-col items-center"
             >
@@ -43,7 +47,7 @@ const LearningHub = () => {
               />
               <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
               <p className="text-gray-500 text-sm">{item.desc}</p>
-            </div>
+            </a>
           ))}
         </div>
       </div>

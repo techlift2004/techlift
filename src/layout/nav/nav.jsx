@@ -2,7 +2,7 @@ import React from "react";
 import logo from "@/assets/techlift.svg";
 import bars from "../../assets/icons/hamburger.svg";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { X } from "lucide-react";
 
 
@@ -34,15 +34,22 @@ export default function Nav() {
         {/* Desktop Links */}
         <div className="hidden lg:flex items-center gap-10 font-Nunito">
           {links.map((l, i) => (
-            <Link key={i} to={l.to} className="hover:text-purple-600">
+            <NavLink
+              key={i}
+              to={l.to}
+              className={({ isActive }) =>
+                isActive
+                  ? "text-purple-700 font-bold border-b-2 border-purple-700 pb-1"
+                  : "hover:text-purple-600 border-b-2 border-transparent pb-1 transition-colors"
+              }
+            >
               {l.label}
-            </Link>
+            </NavLink>
           ))}
-         
         </div>
 
         <div>
-             <Button onClick={() => window.open("https://forms.gle/ZEF5oYcAmSPakr3K9", "_blank")} className="bg-button-background hidden md:block">Join The Community</Button>
+          <Button onClick={() => window.open("https://forms.gle/ZEF5oYcAmSPakr3K9", "_blank")} className="bg-button-background hidden md:block">Join The Community</Button>
         </div>
 
         <img
@@ -56,9 +63,8 @@ export default function Nav() {
       </nav>
 
       <div
-        className={`fixed inset-0 bg-white flex flex-col justify-between items-center px-8 py-10 z-50 transform transition-all duration-300 ease-in-out ${
-          open ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
-        }`}
+        className={`fixed inset-0 bg-white flex flex-col justify-between items-center px-8 py-10 z-50 transform transition-all duration-300 ease-in-out ${open ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
+          }`}
       >
         <div className="w-full flex justify-between items-center">
           <img src={logo} alt="Techlift logo" className="w-auto h-8" />
@@ -71,14 +77,18 @@ export default function Nav() {
 
         <div className="flex flex-col items-center justify-center gap-8 text-2xl font-Nunito flex-grow">
           {links.map((l, i) => (
-            <Link
+            <NavLink
               key={i}
               to={l.to}
               onClick={() => setOpen(false)}
-              className="hover:text-purple-600 transition-colors"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-purple-700 font-bold border-b-2 border-purple-700 pb-1"
+                  : "hover:text-purple-600 border-b-2 border-transparent pb-1 transition-colors"
+              }
             >
               {l.label}
-            </Link>
+            </NavLink>
           ))}
         </div>
 

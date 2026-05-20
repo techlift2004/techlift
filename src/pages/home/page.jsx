@@ -10,7 +10,7 @@ export default function page() {
     <div>
       <Hero />
       <Insights />
-      <Happenings />
+      {/* <Happenings /> */}
       <LearningHub />
       <SupportersAndTestimonials />
     </div>
