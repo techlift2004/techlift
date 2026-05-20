@@ -38,47 +38,55 @@ export default function Blog() {
   }, []);
 
   return (
-    <main className="container mx-auto max-w-full p-8">
-      <h1 className="text-4xl font-bold mb-8">Blog Posts</h1>
-      <div className="flex flex-col gap-y-6">
+    <main className="container mx-auto max-w-full pb-8">
+      {/* HERO SECTION */}
+      <div className="w-full bg-gradient-to-b from-[#3C0067] to-[#7700CD] mb-12 relative overflow-hidden shadow-xl min-h-[300px] flex items-center justify-center">
+        <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=1200&auto=format&fit=crop" className="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-30" alt="Blog background" />
+        <div className="px-5 sm:px-10 py-16 relative z-10 flex flex-col items-center text-center mt-12">
+          <h1 className="text-4xl md:text-5xl font-Nunito font-bold text-white mb-4">Our Blog</h1>
+          <p className="text-white/90 text-lg md:text-xl font-Nunito max-w-2xl">Read our latest articles, insights, and stories from the tech community.</p>
+        </div>
+      </div>
+
+      <div className="px-8 flex flex-col gap-y-6">
         {posts.map((post) => (
           <div key={post._id} className="p-4 border rounded-lg flex flex-col md:flex-row justify-between gap-4 shadow-sm">
 
-           
-           <div className=" ">
-             {post.image?.asset?.url && (
-              <img
-                src={post.image.asset.url}
-                alt={post.title}
-                className="w-[70rem] max-h-[20rem] object-cover rounded-md"
-              />
-            )}
-           </div>
 
-          <div className="md:w-[90rem] w-full flex flex-col items-start justify-between py-">
+            <div className=" ">
+              {post.image?.asset?.url && (
+                <img
+                  src={post.image.asset.url}
+                  alt={post.title}
+                  className="w-[70rem] max-h-[20rem] object-cover rounded-md"
+                />
+              )}
+            </div>
+
+            <div className="md:w-[90rem] w-full flex flex-col items-start justify-between py-">
               <p className="text-[#7700CD] bg-[#F5EBFF] px-4 py-1 rounded-full text-[14px] font-semibold">
-                                        Featured Resource
-                                    </p>
+                Featured Resource
+              </p>
 
 
               <h2 className="text-xl font-poppin text-text font-semibold">{post.title}</h2>
 
-            {/* Preview Text */}
-            <p className="text-gray-600 font-poppin font-normal w-full mb-2">
-              {getPreviewText(post.body)}
-            </p>
+              {/* Preview Text */}
+              <p className="text-gray-600 font-poppin font-normal w-full mb-2">
+                {getPreviewText(post.body)}
+              </p>
 
-            <p className="text-gray-500">
-              {new Date(post.publishedAt).toLocaleDateString()}
-            </p>
+              <p className="text-gray-500">
+                {new Date(post.publishedAt).toLocaleDateString()}
+              </p>
 
-            <Button
-            onClick={() => (window.location.href = `/blog/${post._id}/detail`)}
-              className="bg-button-background font-poppin font-medium inline-block"
-            >
-              See details →
-            </Button>
-          </div>
+              <Button
+                onClick={() => (window.location.href = `/blog/${post._id}/detail`)}
+                className="bg-button-background font-poppin font-medium inline-block"
+              >
+                See details →
+              </Button>
+            </div>
           </div>
         ))}
       </div>
