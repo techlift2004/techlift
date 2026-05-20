@@ -26,7 +26,7 @@ export default function SponsorPage() {
     <div className='flex flex-col w-full bg-white'>
       {/* 1. HERO SECTION */}
       <div className='relative w-full min-h-[350px] md:min-h-[450px] flex flex-col justify-center items-center overflow-hidden pt-20 pb-16'>
-        <div style={{ backgroundImage: `url(https://images.unsplash.com/photo-1556761175-5973e2101869?q=80&w=1800&auto=format&fit=crop)`, backgroundSize: "cover", backgroundPosition: "center" }} className="absolute inset-0 z-0 scale-105"></div>
+        <div style={{ backgroundImage: `url(https://images.unsplash.com/photo-1528605105345-5344ea20e269?q=80&w=1800&auto=format&fit=crop)`, backgroundSize: "cover", backgroundPosition: "center" }} className="absolute inset-0 z-0 scale-105"></div>
         <div className="absolute inset-0 bg-gradient-to-b from-[#3C0067]/90 to-[#7700CD]/95 z-0"></div>
 
         <div className='flex flex-col z-10 px-6 text-center max-w-4xl'>
