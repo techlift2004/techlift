@@ -51,7 +51,7 @@ export default function Page() {
         <div className="flex flex-row gap-4 items-center justify-center relative">
           <div className="rounded-2xl p-1 bg-white/20 backdrop-blur-sm shadow-[0_15px_40px_rgba(0,0,0,0.5)] z-10 translate-y-8 -rotate-3 hover:rotate-0 hover:scale-105 transition-all duration-500">
             <img
-              src="https://images.unsplash.com/photo-1531123897727-8f129e1bfd8c?auto=format&fit=crop&w=600&q=80"
+              src="https://images.unsplash.com/photo-1573164574572-cb89e39749b4?auto=format&fit=crop&w=600&q=80"
               className="max-w-[140px] sm:max-w-[180px] md:max-w-[215px] h-[160px] md:h-[220px] rounded-[12px] object-cover"
               alt="Team strategy meeting"
             />
