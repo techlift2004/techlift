@@ -11,7 +11,7 @@ import email from '@/assets/icons/email.svg'
 import twitter from '@/assets/icons/twitter1.svg'
 import instagram from '@/assets/icons/instagram1.svg'
 import linkedin from '@/assets/icons/linkedin1.svg'
-// import led from '@/assets/contact/Group 7.svg'
+import led from '@/assets/doc/con.jpg'
 
 export default function Page() {
     const [phone, setPhone] = useState('');
@@ -84,14 +84,14 @@ export default function Page() {
                 <div className="flex flex-row justify-center md:justify-end gap-4 items-center relative py-6 md:py-0">
                     <div className="rounded-2xl p-1 bg-white/20 backdrop-blur-sm shadow-[0_15px_40px_rgba(0,0,0,0.5)] z-10 translate-y-6 hover:scale-105 transition-all duration-500">
                         <img
-                            src="https://images.unsplash.com/photo-1573164574572-cb89e39749b4?auto=format&fit=crop&w=600&q=80"
+                            src={led}
                             className="w-[140px] sm:w-[180px] md:w-[215px] h-[150px] sm:h-[200px] md:h-[240px] object-cover rounded-[12px]"
                             alt="Working on laptop"
                         />
                     </div>
                     <div className="rounded-2xl p-1 bg-white/20 backdrop-blur-sm shadow-[0_15px_40px_rgba(0,0,0,0.4)] z-0 -translate-x-6 hover:scale-105 hover:z-20 transition-all duration-500">
                         <img
-                            src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&w=600&q=80"
+                            src="https://images.unsplash.com/photo-1573164574572-cb89e39749b4?auto=format&fit=crop&w=600&q=80"
                             className="w-[180px] sm:w-[230px] md:w-[316px] h-[200px] sm:h-[260px] md:h-[320px] object-cover rounded-[12px]"
                             alt="Team communication"
                         />

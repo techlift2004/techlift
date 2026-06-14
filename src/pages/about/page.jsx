@@ -7,6 +7,7 @@ import mission from "@/assets/icons/mission.svg";
 import purpose from "@/assets/icons/purpose.svg";
 import Team from "@/pages/about/id/team";
 import Support from "@/pages/about/id/support";
+import abt from "../../assets/doc/contact.jpg"
 
 export default function Page() {
   const mvp = [
@@ -58,7 +59,7 @@ export default function Page() {
           </div>
           <div className="rounded-2xl p-1 bg-white/20 backdrop-blur-sm shadow-[0_15px_40px_rgba(0,0,0,0.4)] rotate-2 z-0 -translate-x-8 hover:rotate-0 hover:scale-105 hover:z-20 transition-all duration-500">
             <img
-              src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=600&q=80"
+              src={abt}
               className="max-w-[200px] sm:max-w-[260px] md:max-w-[316px] h-[250px] sm:h-[300px] md:h-[360px] rounded-[12px] object-cover"
               alt="Creative collaboration"
             />
