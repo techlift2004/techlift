@@ -1,6 +1,9 @@
 import React from 'react'
 import { Button } from '@/components/ui/button'
 import Resources from './id/resources'
+import learn from "../../assets/doc/learn.jpg"
+import learn2 from "../../assets/doc/learnn.jpg"
+
 
 export default function page() {
     return (
@@ -22,14 +25,14 @@ export default function page() {
                 <div className="flex flex-row justify-center md:justify-end gap-4 items-center relative py-6 md:py-0">
                     <div className="rounded-2xl p-1 bg-white/20 backdrop-blur-sm shadow-[0_15px_40px_rgba(0,0,0,0.5)] z-10 translate-y-6 hover:scale-105 transition-all duration-500">
                         <img
-                            src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&w=600&q=80"
+                            src={learn2}
                             className="w-[140px] sm:w-[180px] md:w-[215px] h-[150px] sm:h-[200px] md:h-[240px] object-cover rounded-[12px]"
                             alt="Clean workspace"
                         />
                     </div>
                     <div className="rounded-2xl p-1 bg-white/20 backdrop-blur-sm shadow-[0_15px_40px_rgba(0,0,0,0.4)] z-0 -translate-x-6 hover:scale-105 hover:z-20 transition-all duration-500">
                         <img
-                            src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=600&q=80"
+                            src={learn}
                             className="w-[180px] sm:w-[230px] md:w-[316px] h-[200px] sm:h-[260px] md:h-[320px] object-cover rounded-[12px]"
                             alt="Brainstorming resources"
                         />

@@ -2,6 +2,8 @@ import React from 'react'
 import { Button } from '@/components/ui/button'
 import UpcomingEvent from "./id/upcomingEvent"
 import PastEvent from './id/pastEvent'
+import event from "../../assets/doc/event.jpg"
+import event2 from "../../assets/doc/eventss.jpg"
 
 export default function page() {
     return (
@@ -26,14 +28,14 @@ export default function page() {
                 <div className="flex flex-row justify-center md:justify-end gap-4 items-center relative">
                     <div className="w-[140px] sm:w-[180px] md:w-[215px] h-[180px] sm:h-[220px] md:h-[260px] rounded-2xl p-1 bg-white/20 backdrop-blur-sm shadow-[0_15px_40px_rgba(0,0,0,0.5)] z-10 translate-y-6 hover:scale-105 transition-all duration-500">
                         <img
-                            src="https://images.unsplash.com/photo-1560439514-4e9645039924?auto=format&fit=crop&w=600&q=80"
+                            src={event}
                             className="w-full h-full object-cover rounded-[12px]"
                             alt="Tech conference audience"
                         />
                     </div>
                     <div className="w-[180px] sm:w-[230px] md:w-[316px] h-[200px] sm:h-[250px] md:h-[320px] rounded-2xl p-1 bg-white/20 backdrop-blur-sm shadow-[0_15px_40px_rgba(0,0,0,0.4)] z-0 -translate-x-6 hover:scale-105 hover:z-20 transition-all duration-500">
                         <img
-                            src="https://images.unsplash.com/photo-1543269664-56d93c1b41a6?auto=format&fit=crop&w=600&q=80"
+                            src={event2}
                             className="w-full h-full object-cover rounded-[12px]"
                             alt="Tech speaker presenting"
                         />
